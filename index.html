@@ -2,26 +2,48 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>js debugging</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-	<link rel="stylesheet" href="style.css">
+	<title>Test breakpoint</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+	<style>
+		.active{
+			color: #5bc0de;
+		}
+	</style>
 </head>
 <body>
 	<div class="container">
-		<h1>Calculate</h1>
-		<form>
-		  <div class="form-group">
-		    <input type="text" class="form-control" id="num1" placeholder="Number1">
-		  </div>
-		  <div class="form-group">
-		    <input type="text" class="form-control" id="num2" placeholder="Number2">
-		  </div>
-		  <button type="button" id="btn" class="btn btn-primary">Add</button>
-		</form>	
+		<h1 id="title">Debugging</h1>
+		<button type="button" id="addClass" class="btn btn-default">Add Class</button>
 		<hr>
-		<p>Add Number1 and Number2: <span id="result"></span></p>
+		<h1 id="title2">Remove Debugging</h1>
+		<button type="button" id="Remove" class="btn btn-default">Remove</button>
+		<hr>
+		<h1 id="title3">Edit Debugging</h1>
+		<button type="button" id="edit" class="btn btn-default">Edit Name</button>
 	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	<script src="app.js"></script>
+	<script>
+		document.getElementById("addClass").addEventListener("click", function(){
+			document.getElementById("title").className = "active";
+		})
+		document.getElementById("Remove").addEventListener("click", function(){
+			var elem = document.getElementById("title2");
+    		elem.parentNode.removeChild(elem);
+		})
+		document.getElementById("edit").addEventListener("click", function(){
+			var elem = document.getElementById("title3");
+			var para = document.createElement("P");  
+			var t = document.createTextNode("This is a paragraph.");
+			para.appendChild(t); 
+    		elem.appendChild(para)
+		})
+		var i = 1, y;
+		i = 2;
+		i = 10;
+		for(var x=0; x<10; x++){
+			y = x;
+		}
+		console.log(h)
+
+	</script>
 </body>
 </html>
